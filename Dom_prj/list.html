@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+
+        .listContent{
+            width: 50%;
+            height: auto;
+            margin-top:2%;
+            margin-left: 25%;
+        }
+        .listContent * {
+            display: inline-block;
+        }
+
+        .paintColor {
+            border:2px dashed red;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+<div style="text-align: center">List elements: Click 3 multiples</div>
+
+<div class="listContent"></div>
+
+<script src="jquery.js"></script>
+<script>
+
+
+    $(document).ready(function () {
+
+        for (var i = 1; i <= 100; i++) {
+            $('.listContent').append('<button>' + i + '</button>&nbsp;&nbsp;');
+        }
+
+//        $('.listContent *').click(function () {
+//            if ($(this).text() % 3 === 0) {
+//
+//                $(this).css({'color': 'red','background-color':'yellow'});
+//            }
+//        });
+
+
+        $('.listContent *').each(function () {
+            if ($(this).text() % 3 === 0) {
+
+                $(this).hover(function () {
+                    $(this).css({'cursor': 'pointer'});
+                });
+
+                $(this).click(function () {
+                    $(this).toggleClass("paintColor");
+                });
+            }
+        });
+
+
+    });
+
+
+</script>
+</body>
+</html>
